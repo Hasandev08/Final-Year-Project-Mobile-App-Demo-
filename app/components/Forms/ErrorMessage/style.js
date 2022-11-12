@@ -5,7 +5,7 @@ import colors from '../../../config/colors'
 export const styles = StyleSheet.create({
   error: {
     color: colors.red,
-    paddingTop: 10,
+    paddingTop: 2,
     paddingLeft: 30,
   },
 })

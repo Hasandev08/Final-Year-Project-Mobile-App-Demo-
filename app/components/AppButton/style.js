@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     padding: 18,
     width: '80%',
     marginTop: 30,
-    // marginHorizontal: 35,
   },
   title: {
     fontWeight: 'bold',

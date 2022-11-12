@@ -14,8 +14,8 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label('Password'),
 })
 
-const LoginScreen = (props) => (
-  <>
+const LoginScreen = ({ navigation }) => (
+  <View style={styles.background}>
     <View style={styles.container}>
       <View style={styles.components}>
         <AppForm
@@ -40,20 +40,25 @@ const LoginScreen = (props) => (
             textContentType='password'
           />
           <View style={styles.row}>
-            <Text style={styles.phrase}>Forgot Password?</Text>
+            <Text style={styles.phrase} onPress={() => navigation.navigate('ForgotPassword')}>
+              Forgot Password?
+            </Text>
           </View>
           <View style={styles.loginButton}>
             <SubmitButton title='Login' />
           </View>
           <View style={styles.footer}>
             <Text style={styles.account}>
-              Don't have an account? <Text style={styles.signup}>SIGNUP</Text>
+              Don't have an account?{' '}
+              <Text style={styles.signup} onPress={() => navigation.navigate('Signup')}>
+                SIGNUP
+              </Text>
             </Text>
           </View>
         </AppForm>
       </View>
     </View>
-  </>
+  </View>
 )
 
 export default LoginScreen
