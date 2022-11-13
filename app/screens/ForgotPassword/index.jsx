@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
 })
 
-function ForgotPassword(props) {
+function ForgotPassword({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={{ alignItems: 'center' }}>
@@ -25,7 +25,7 @@ function ForgotPassword(props) {
       </View>
       <AppForm
         initialValues={{ email: '' }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={() => navigation.navigate('ChangePassword')}
         validationSchema={validationSchema}
       >
         <AppFormField

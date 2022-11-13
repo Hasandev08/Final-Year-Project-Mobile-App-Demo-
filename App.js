@@ -1,3 +1,5 @@
+import AddressScreen from './app/screens/AddressScreen'
+import ChangePassword from './app/screens/ChangePassword'
 import ForgotPassword from './app/screens/ForgotPassword'
 import LoginScreen from './app/screens/LoginScreen'
 import SignUpScreen from './app/screens/SignUpScreen'
@@ -18,6 +20,16 @@ export default function App() {
         <Stack.Screen
           name='ForgotPassword'
           component={ForgotPassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='ChangePassword'
+          component={ChangePassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='AddressScreen'
+          component={AddressScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

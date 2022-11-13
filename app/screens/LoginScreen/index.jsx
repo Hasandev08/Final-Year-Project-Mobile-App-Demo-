@@ -10,8 +10,14 @@ import * as Yup from 'yup'
 import { styles } from './style'
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label('Email'),
-  password: Yup.string().required().min(4).label('Password'),
+  email: Yup.string().email('Please enter valid email').required('Email is required'),
+  password: Yup.string()
+    .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
+    .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
+    .matches(/\d/, 'Password must have a number')
+    .matches(/[!@#$%^&*()\-_"=+{}; :,<.>]/, 'Password must have a special character')
+    .min(8, ({ min }) => `Password must be at least ${min} characters`)
+    .required('Password is required'),
 })
 
 const LoginScreen = ({ navigation }) => (
@@ -20,7 +26,7 @@ const LoginScreen = ({ navigation }) => (
       <View style={styles.components}>
         <AppForm
           initialValues={{ email: '', password: '' }}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={() => navigation.navigate('AddressScreen')}
           validationSchema={validationSchema}
         >
           <AppFormField

@@ -2,11 +2,11 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
 
-import * as Yup from 'yup'
-
 import AppForm from '../../components/Forms/AppForm'
 import AppFormField from '../../components/Forms/AppFormField'
 import SubmitButton from '../../components/Forms/SubmitButton'
+
+import * as Yup from 'yup'
 
 import colors from '../../config/colors'
 import { styles } from './style'
@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
     .matches(/(\w.+\s).+/, 'Enter at least 2 names')
     .required('Full name is required'),
   phoneNumber: Yup.string()
-    .matches(/(01)(\d){8}\b/, 'Enter a valid phone number')
+    .matches(/^((\+92)?(0092)?(92)?(0)?)(3)([0-9]{9})$/gm, 'Enter a valid phone number')
     .required('Phone number is required'),
   email: Yup.string().email('Please enter valid email').required('Email is required'),
   password: Yup.string()
@@ -39,17 +39,22 @@ const SignUpScreen = ({ navigation }) => (
     <View style={styles.container}>
       <View style={styles.components}>
         <AppForm
-          initialValues={{ email: '', password: '' }}
+          initialValues={{
+            fullName: '',
+            phoneNumber: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+          }}
           onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
         >
+          <AppFormField text='Name' name='fullName' textContentType='name' />
           <AppFormField
-            text='Email'
-            autoCapitalize='none'
-            autoCorrect={false}
-            keyboardType='email-address'
-            name='email'
-            textContentType='emailAddress'
+            text='Contact'
+            keyboardType='phone-pad'
+            name='phoneNumber'
+            textContentType='telephoneNumber'
           />
           <AppFormField
             text='Email'
@@ -75,7 +80,7 @@ const SignUpScreen = ({ navigation }) => (
             secureTextEntry
             textContentType='password'
           />
-          <View style={styles.loginButton}>
+          <View style={styles.signupButton}>
             <SubmitButton title='Signup' />
           </View>
           <View style={styles.footer}>
