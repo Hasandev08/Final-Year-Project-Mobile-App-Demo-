@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 
 import AppForm from '../../components/Forms/AppForm'
 import AppFormField from '../../components/Forms/AppFormField'
@@ -22,11 +22,14 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = ({ navigation }) => (
   <View style={styles.background}>
+    <View style={styles.image}>
+      <Image style={styles.logo} source={require('../../../assets/logo.jpeg')}></Image>
+    </View>
     <View style={styles.container}>
       <View style={styles.components}>
         <AppForm
           initialValues={{ email: '', password: '' }}
-          onSubmit={() => navigation.navigate('AddressScreen')}
+          onSubmit={() => navigation.navigate('HomeScreen')}
           validationSchema={validationSchema}
         >
           <AppFormField

@@ -7,8 +7,15 @@ import colors from '../../config/colors'
 export const styles = StyleSheet.create({
   background: {
     backgroundColor: colors.black,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-around',
     flex: 1,
+  },
+  logo: {
+    width: 200,
+    height: 200,
+  },
+  image: {
+    alignItems: 'center',
   },
   container: {
     flex: 0.5,
