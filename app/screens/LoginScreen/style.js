@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     flex: 0.5,
-    backgroundColor: colors.loginContainer,
+    backgroundColor: colors.container,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
