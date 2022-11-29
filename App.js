@@ -2,6 +2,7 @@
 // import ChangePassword from './app/screens/ChangePassword'
 // import ForgotPassword from './app/screens/ForgotPassword'
 import HomeScreen from './app/screens/HomeScreen'
+import FavoritesScreen from './app/screens/FavoritesScreen'
 // import LoginScreen from './app/screens/LoginScreen'
 // import SignUpScreen from './app/screens/SignUpScreen'
 // import WelcomeScreen from './app/screens/WelcomeScreen'
@@ -13,7 +14,7 @@ export default function App() {
   // const Stack = createNativeStackNavigator()
 
   return (
-    <HomeScreen />
+    <FavoritesScreen />
     // <NavigationContainer>
     //   <Stack.Navigator initialRouteName='Home'>
     //     <Stack.Screen name='Home' component={WelcomeScreen} options={{ headerShown: false }} />

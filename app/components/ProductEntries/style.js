@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native'
-import { RFValue } from 'react-native-responsive-fontsize'
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
 import colors from '../../config/colors'
 
 export const styles = StyleSheet.create({
   product: {
-    marginLeft: 30,
+    marginLeft: 25,
   },
   image: {
     width: 150,
     height: 250,
-    marginTop: 30,
+    marginTop: 20,
     alignItems: 'flex-end',
   },
   icon: {
@@ -22,13 +22,13 @@ export const styles = StyleSheet.create({
   clothes: {
     color: colors.white,
     fontSize: RFValue(10),
-    paddingRight: 200,
+    width: RFPercentage(20),
+    paddingLeft: RFPercentage(0.5),
     marginTop: 10,
     marginBottom: 5,
-    marginLeft: 5,
   },
   prices: {
     flexDirection: 'row',
-    marginLeft: 5,
+    paddingLeft: RFPercentage(0.5),
   },
 })
